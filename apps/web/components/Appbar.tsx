@@ -12,26 +12,26 @@ export const Appbar = () => {
   const user = session.data?.user;
 
   return (
-    <nav className="sticky mx-auto wrapper top-0 z-50 flex items-center gap-2 py-6 w-full">
+    <nav className="wrapper sticky top-0 z-50 mx-auto flex w-full items-center gap-2 py-6">
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeInOut", type: "spring", damping: 10 }}
-        className="flex w-full justify-between mx-auto bg-secondary/15 shadow-lg shadow-neutral-600/5 backdrop-blur-lg border border-primary/10 p-6 rounded-2xl"
+        className="bg-secondary/15 border-primary/10 mx-auto flex w-full justify-between rounded-2xl border p-6 shadow-lg shadow-neutral-600/5 backdrop-blur-lg"
       >
-        <Link href={"/"} className="flex items-center gap-2 cursor-pointer">
+        <Link href={"/"} className="flex cursor-pointer items-center gap-2">
           <Image
             src={"https://appx-wsb-gcp.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg"}
             alt="Logo"
             width={300}
             height={200}
-            className="rounded-full size-10"
+            className="size-10 rounded-full"
           />
-          <span className="text-lg md:text-2xl font-bold tracking-tight text-foreground hidden md:block">
+          <span className="text-foreground hidden text-lg font-bold tracking-tight md:block md:text-2xl">
             100xProjects
           </span>
         </Link>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-3">
           <ModeToggle />
           {!user ? (
             <Button
@@ -45,7 +45,9 @@ export const Appbar = () => {
           ) : (
             ""
           )}
-
+          <Link href={"/whiteboard"}>
+            <Button className="h-10 rounded-md px-5">Whiteboard</Button>
+          </Link>
           <UserAccountDropDown />
         </div>
       </motion.div>
